@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portal Contabilidade e Assessoria Empresarial — 52 anos de experiência em Pinhalzinho/SC." />
+  <title>Portal Contabilidade — Pinhalzinho/SC desde 1973</title>
+
+  <!-- Favicon (inline SVG, logo-derived) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 44'><rect x='2' y='4' width='18' height='36' rx='2.5' fill='%231E1B14'/><rect x='5' y='7' width='12' height='5.5' rx='1.5' fill='%23EDE6D8'/><path d='M 20 15 A 7 7 0 0 1 20 29' stroke='%238B6524' stroke-width='2.5' fill='none' stroke-linecap='round'/><path d='M 20 11 A 11 11 0 0 1 20 33' stroke='%238B6524' stroke-width='2' fill='none' stroke-linecap='round' opacity='0.55'/><path d='M 20 7 A 15 15 0 0 1 20 37' stroke='%238B6524' stroke-width='1.5' fill='none' stroke-linecap='round' opacity='0.28'/></svg>" />
+  <link rel="apple-touch-icon" href="assets/logo.svg" />
+  <meta name="theme-color" content="#1E1B14" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Portal Contabilidade — 52 anos em Pinhalzinho/SC" />
+  <meta property="og:description" content="Contabilidade, fiscal, departamento pessoal e assessoria empresarial no Oeste de Santa Catarina. Desde 1973." />
+  <meta property="og:site_name" content="Portal Contabilidade" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Portal Contabilidade — Pinhalzinho/SC" />
+  <meta name="twitter:description" content="52 anos ajudando empresas do Oeste de SC a crescerem com segurança." />
+
+  <!-- Fonts: DM Serif Display (headings) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ─── TOKENS ─── */
+    :root {
+      --bg:       #F4EFE4;
+      --bg-2:     #EDE6D8;
+      --surface:  #FAF8F3;
+      --border:   rgba(40,34,20,0.10);
+      --text:     #1E1B14;
+      --text-2:   rgba(30,27,20,0.50);
+      --text-3:   rgba(30,27,20,0.28);
+      --accent:   #8B6524;
+      --accent-l: #B8882F;
+      --ink:      #1E1B14;
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .serif { font-family: 'DM Serif Display', serif; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(139,101,36,0.3); border-radius: 10px; }
+
+    /* ─── SCROLL PROGRESS ─── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-l), #D4A843);
+      z-index: 200;
+      transition: width 0.08s linear;
+    }
+
+    /* ─── NAVBAR ─── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center;
+      padding: 0 40px;
+      transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav-scrolled {
+      background: rgba(244,239,228,0.92) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: var(--border) !important;
+      box-shadow: 0 1px 20px rgba(30,27,20,0.06) !important;
+    }
+    .nav-inner { max-width: 1280px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-text { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--text); line-height: 1.1; display: block; }
+    .nav-logo-sub { font-family: 'DM Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-2); display: block; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-link { font-size: 0.875rem; font-weight: 500; color: var(--text-2); text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent); }
+    .nav-cta {
+      font-size: 0.8rem; font-weight: 600;
+      padding: 8px 18px;
+      background: var(--ink);
+      color: var(--bg);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent); transform: translateY(-1px); }
+    #hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); }
+    #mobile-menu { display: none; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; right: -60px; top: 50%;
+      transform: translateY(-50%);
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,101,36,0.07) 0%, transparent 70%);
+    }
+    .hero-inner { max-width: 1280px; margin: 0 auto; width: 100%; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent);
+      padding: 6px 14px;
+      border: 1px solid rgba(139,101,36,0.25);
+      border-radius: 100px;
+      background: rgba(139,101,36,0.06);
+      margin-bottom: 32px;
+    }
+    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    .hero-h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 28px;
+      max-width: 760px;
+    }
+    .hero-h1 em { font-style: italic; color: var(--accent); }
+
+    .hero-p {
+      font-size: 1.05rem;
+      color: var(--text-2);
+      max-width: 480px;
+      line-height: 1.75;
+      margin-bottom: 44px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--ink); color: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem; font-weight: 600;
+      padding: 13px 24px; border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 16px rgba(30,27,20,0.18);
+    }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(139,101,36,0.3); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: transparent; color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem; font-weight: 500;
+      padding: 13px 24px; border-radius: 10px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.25s, color 0.25s, background 0.25s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: rgba(139,101,36,0.04); }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: #16a34a; color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem; font-weight: 600;
+      padding: 13px 24px; border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 16px rgba(22,163,74,0.25);
+    }
+    .btn-wa:hover { background: #15803d; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(22,163,74,0.35); }
+
+    /* ─── MARQUEE ─── */
+    .marquee-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-2);
+      padding: 14px 0;
+    }
+    .marquee-track {
+      display: flex; gap: 0;
+      animation: marquee 30s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-item {
+      display: inline-flex; align-items: center; gap: 16px;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-2);
+      padding: 0 28px;
+    }
+    .marquee-item i { color: var(--accent); font-size: 0.65rem; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── STATS BAND ─── */
+    .stats-band {
+      background: var(--ink);
+      padding: 44px 40px;
+    }
+    .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .stat-cell {
+      text-align: center;
+      padding: 0 32px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-val { font-family: 'DM Serif Display', serif; font-size: 3rem; color: #fff; line-height: 1; }
+    .stat-val em { font-style: normal; color: var(--accent-l); }
+    .stat-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 8px; }
+
+    /* ─── SERVICES SCROLL STORY ─── */
+    #servicos-wrap {
+      height: 700vh;
+      position: relative;
+    }
+    #servicos-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    /* Section header inside sticky */
+    .srv-header {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(244,239,228,0.85);
+      backdrop-filter: blur(12px);
+    }
+    .srv-header-label {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-2);
+    }
+    .srv-counter {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.9rem; color: var(--text-2);
+    }
+    .srv-counter em { font-style: normal; color: var(--text); font-size: 1.05rem; }
+
+    /* Progress dots */
+    .srv-dots {
+      position: absolute; right: 28px; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 8px;
+      z-index: 20;
+    }
+    .srv-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(30,27,20,0.18);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s, height 0.3s;
+      border: none;
+    }
+    .srv-dot.on {
+      background: var(--accent);
+      height: 20px;
+      border-radius: 3px;
+      transform: scaleX(1.2);
+    }
+
+    /* Individual panels */
+    .srv-panel {
+      position: absolute;
+      inset: 80px 0 0 0;  /* below sticky header */
+      display: flex; align-items: center;
+      padding: 0 40px;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.55s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+      pointer-events: none;
+    }
+    .srv-panel.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+    .srv-panel.past {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    .srv-panel-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* Left: text */
+    .srv-text { display: flex; flex-direction: column; }
+    .srv-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 7rem; line-height: 1;
+      color: rgba(30,27,20,0.06);
+      letter-spacing: -0.04em;
+      margin-bottom: -16px;
+      display: block;
+    }
+    .srv-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .srv-desc {
+      font-size: 1rem;
+      color: var(--text-2);
+      line-height: 1.8;
+      max-width: 420px;
+      margin-bottom: 32px;
+    }
+    .srv-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .srv-tag::before { content: ''; width: 16px; height: 1px; background: var(--accent); display: inline-block; }
+
+    /* Right: visual */
+    .srv-visual {
+      display: flex; align-items: center; justify-content: center;
+      position: relative; height: 360px;
+    }
+    .srv-visual-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(139,101,36,0.12);
+    }
+    .srv-visual-ring:nth-child(1) { width: 300px; height: 300px; }
+    .srv-visual-ring:nth-child(2) { width: 220px; height: 220px; border-color: rgba(139,101,36,0.18); }
+    .srv-visual-ring:nth-child(3) { width: 140px; height: 140px; background: rgba(139,101,36,0.05); border-color: rgba(139,101,36,0.25); }
+    .srv-icon {
+      position: relative; z-index: 2;
+      font-size: 4rem;
+      color: var(--accent);
+      opacity: 0.9;
+    }
+
+    /* ─── SOBRE ─── */
+    #sobre { background: var(--ink); padding: 100px 40px; }
+    .sobre-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .sobre-img {
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      aspect-ratio: 4/3;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.12);
+      position: relative; overflow: hidden;
+    }
+    .sobre-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-l)); }
+    .sobre-badge { position: absolute; top: 20px; right: 20px; background: var(--accent); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 6px 12px; border-radius: 6px; }
+    .sobre-text { display: flex; flex-direction: column; }
+    .sobre-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-l); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .sobre-label::before { content: ''; width: 20px; height: 1px; background: var(--accent-l); display: inline-block; }
+    .sobre-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem,3.5vw,2.8rem); line-height: 1.2; letter-spacing: -0.02em; color: #fff; margin-bottom: 24px; }
+    .sobre-p { font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.85; margin-bottom: 16px; }
+    .sobre-value { display: flex; gap: 12px; margin-bottom: 12px; }
+    .sobre-check { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; background: rgba(139,101,36,0.2); border: 1px solid rgba(139,101,36,0.3); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .sobre-check i { font-size: 8px; color: var(--accent-l); }
+    .sobre-value-text { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .sobre-value-text strong { color: rgba(255,255,255,0.85); }
+    .cnpj-badge { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; padding: 10px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+    .cnpj-badge .active { color: #4ade80; font-weight: 600; }
+
+    /* ─── CONTACT ─── */
+    #contato { padding: 100px 40px; background: var(--bg); }
+    .contato-inner { max-width: 1280px; margin: 0 auto; }
+    .contato-header { text-align: center; margin-bottom: 64px; }
+    .section-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
+    .section-label::before, .section-label::after { content: ''; width: 20px; height: 1px; background: var(--accent); display: inline-block; }
+    .contato-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem,4vw,3rem); letter-spacing: -0.02em; color: var(--text); margin-bottom: 0; }
+    .contato-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; }
+    .info-card { display: flex; gap: 16px; align-items: flex-start; padding: 20px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border); transition: border-color 0.3s; }
+    .info-card:hover { border-color: rgba(139,101,36,0.25); }
+    .info-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(139,101,36,0.08); border: 1px solid rgba(139,101,36,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent); font-size: 0.9rem; }
+    .info-title { font-weight: 600; font-size: 0.85rem; color: var(--text); margin-bottom: 4px; }
+    .info-val { font-size: 0.83rem; color: var(--text-2); line-height: 1.6; }
+    .info-val a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .info-val a:hover { color: var(--accent); }
+    .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 36px; }
+    .form-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--text); margin-bottom: 24px; }
+    .field-label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); margin-bottom: 6px; }
+    .field {
+      width: 100%; padding: 12px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem; color: var(--text);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .field::placeholder { color: var(--text-3); }
+    .field:focus { outline: none; border-color: rgba(139,101,36,0.4); box-shadow: 0 0 0 3px rgba(139,101,36,0.08); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-gap { margin-bottom: 16px; }
+    .submit-btn {
+      width: 100%;
+      background: var(--ink); color: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem; font-weight: 600;
+      padding: 14px;
+      border: none; border-radius: 10px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .submit-btn:hover { background: var(--accent); transform: translateY(-1px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      padding: 52px 40px 28px;
+    }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-p { font-size: 0.83rem; color: var(--text-2); line-height: 1.7; max-width: 280px; }
+    .footer-cnpj { font-size: 0.7rem; color: var(--text-3); margin-top: 12px; }
+    .footer-col-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--text-2); margin-bottom: 16px; }
+    .footer-link { display: block; font-size: 0.83rem; color: var(--text-2); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-link:hover { color: var(--accent); }
+    .footer-info-row { display: flex; gap: 10px; margin-bottom: 10px; font-size: 0.83rem; color: var(--text-2); }
+    .footer-info-row i { color: var(--accent); font-size: 0.75rem; margin-top: 3px; flex-shrink: 0; }
+    .footer-info-row a { color: inherit; text-decoration: none; }
+    .footer-info-row a:hover { color: var(--accent); }
+    .footer-social { display: flex; gap: 8px; margin-top: 16px; }
+    .social-btn { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--text-2); border: 1px solid var(--border); background: transparent; text-decoration: none; transition: all 0.25s; }
+    .social-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-copy { font-size: 0.72rem; color: var(--text-3); }
+
+    /* ─── FLOATING WA ─── */
+    #wa-fab {
+      position: fixed; bottom: 24px; right: 24px; z-index: 150;
+      width: 52px; height: 52px;
+      background: #16a34a; color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(22,163,74,0.4);
+      opacity: 0; transform: scale(0.7) translateY(10px);
+      transition: opacity 0.4s, transform 0.4s, background 0.25s;
+      pointer-events: none;
+    }
+    #wa-fab.show { opacity: 1; transform: scale(1) translateY(0); pointer-events: auto; }
+    #wa-fab:hover { background: #15803d; transform: scale(1.08); }
+
+    /* ─── UNIVERSAL ANIMATIONS ─── */
+    .anim { will-change: transform, opacity; }
+    .rise { opacity: 0; transform: translateY(44px); transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+    .rise.in { opacity: 1; transform: translateY(0); }
+    .fade { opacity: 0; transition: opacity 0.9s ease; }
+    .fade.in { opacity: 1; }
+    .from-l { opacity: 0; transform: translateX(-56px); transition: opacity 0.85s ease, transform 0.95s cubic-bezier(0.16,1,0.3,1); }
+    .from-l.in { opacity: 1; transform: translateX(0); }
+    .from-r { opacity: 0; transform: translateX(56px); transition: opacity 0.85s ease, transform 0.95s cubic-bezier(0.16,1,0.3,1); }
+    .from-r.in { opacity: 1; transform: translateX(0); }
+    .pop { opacity: 0; transform: scale(0.88) translateY(32px); transition: opacity 0.75s ease, transform 0.85s cubic-bezier(0.16,1,0.3,1); }
+    .pop.in { opacity: 1; transform: scale(1) translateY(0); }
+    .d1 { transition-delay: 0.09s !important; }
+    .d2 { transition-delay: 0.18s !important; }
+    .d3 { transition-delay: 0.27s !important; }
+    .d4 { transition-delay: 0.36s !important; }
+    .d5 { transition-delay: 0.45s !important; }
+
+    /* mask / line reveal */
+    .mask { overflow: hidden; display: block; }
+    .line { display: block; transform: translateY(110%); transition: transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+    .line.in { transform: translateY(0); }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      #navbar { padding: 0 20px; }
+      .nav-links { display: none; }
+      #hamburger { display: block; }
+      #mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(244,239,228,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 99; padding: 20px; }
+      #mobile-menu.open { display: flex; flex-direction: column; gap: 14px; }
+      #hero { padding: 120px 20px 60px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 20px 0; }
+      .stat-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+      .srv-panel-inner { grid-template-columns: 1fr; gap: 24px; }
+      .srv-visual { height: 160px; }
+      .srv-visual-ring:nth-child(1) { width: 140px; height: 140px; }
+      .srv-visual-ring:nth-child(2) { width: 100px; height: 100px; }
+      .srv-visual-ring:nth-child(3) { width: 60px; height: 60px; }
+      .srv-icon { font-size: 2.2rem; }
+      .srv-num { font-size: 4rem; }
+      .srv-panel { padding: 0 20px; }
+      .srv-header { padding: 16px 20px; }
+      .srv-dots { right: 14px; }
+      .sobre-inner { grid-template-columns: 1fr; gap: 40px; }
+      .contato-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .contato-inner { padding: 0; }
+      #contato { padding: 80px 20px; }
+      #sobre { padding: 80px 20px; }
+      footer { padding: 52px 20px 24px; }
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+    /* ─── PROCESSO ─── */
+    .proc-grid { display: flex; flex-direction: column; gap: 48px; }
+    .proc-step { display: grid; grid-template-columns: 140px 1fr; gap: 32px; align-items: start; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .proc-step:last-child { border-bottom: none; padding-bottom: 0; }
+    .proc-num { font-family: 'DM Serif Display', serif; font-size: 5rem; line-height: 0.9; color: var(--accent); }
+    @media (max-width: 720px) {
+      .proc-grid { gap: 32px; }
+      .proc-step { grid-template-columns: 1fr; gap: 12px; padding-bottom: 32px; }
+      .proc-num { font-size: 3.2rem; }
+    }
+
+    /* ─── DEPOIMENTOS ─── */
+    .dep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .dep-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 36px 32px; }
+    @media (max-width: 900px) { .dep-grid { grid-template-columns: 1fr; } }
+
+    /* ─── FAQ ─── */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: border-color 0.2s; }
+    .faq-item[open] { border-color: var(--accent); }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 22px 28px; font-family: 'DM Serif Display', serif; font-size: 1.15rem; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "\f067"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 0.8rem; color: var(--accent); transition: transform 0.25s; }
+    .faq-item[open] summary::after { content: "\f068"; }
+    .faq-a { padding: 0 28px 24px; color: var(--text-2); line-height: 1.6; }
+  </style>
+</head>
+
+<body>
+  <div id="progress-bar"></div>
+
+  <!-- Floating WA -->
+  <a id="wa-fab" href="https://api.whatsapp.com/send/?phone=5549984231852&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+servi%C3%A7os+cont%C3%A1beis+da+Portal+Contabilidade.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- ═══════ NAVBAR ═══════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <svg width="28" height="33" viewBox="0 0 38 44" fill="none" aria-hidden="true">
+          <rect x="2" y="4" width="18" height="36" rx="2.5" fill="var(--ink)"/>
+          <rect x="5" y="7" width="12" height="5.5" rx="1.5" fill="var(--bg-2)" opacity="0.85"/>
+          <rect x="5"  y="16" width="4"  height="3.5" rx="0.8" fill="var(--bg)" opacity="0.55"/>
+          <rect x="11" y="16" width="4"  height="3.5" rx="0.8" fill="var(--bg)" opacity="0.55"/>
+          <rect x="5"  y="22" width="4"  height="3.5" rx="0.8" fill="var(--bg)" opacity="0.55"/>
+          <rect x="11" y="22" width="4"  height="3.5" rx="0.8" fill="var(--bg)" opacity="0.55"/>
+          <rect x="5"  y="28" width="10" height="3.5" rx="0.8" fill="var(--bg)" opacity="0.55"/>
+          <path d="M 20 15 A 7 7 0 0 1 20 29"   stroke="var(--accent)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 20 11 A 11 11 0 0 1 20 33"  stroke="var(--accent)" stroke-width="2"   fill="none" stroke-linecap="round" opacity="0.55"/>
+          <path d="M 20 7  A 15 15 0 0 1 20 37"  stroke="var(--accent)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.28"/>
+        </svg>
+        <div>
+          <span class="nav-logo-text">Portal</span>
+          <span class="nav-logo-sub">Contabilidade</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#servicos-wrap" class="nav-link">Serviços</a>
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#contato" class="nav-link">Contato</a>
+        <a href="https://api.whatsapp.com/send/?phone=5549984231852&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+servi%C3%A7os+cont%C3%A1beis+da+Portal+Contabilidade.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="nav-cta">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+      <button id="hamburger" aria-label="Menu" aria-expanded="false">
+        <i class="fa-solid fa-bars" id="ham-icon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu">
+    <a href="#servicos-wrap" class="nav-link">Serviços</a>
+    <a href="#sobre" class="nav-link">Sobre</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="#contato" class="nav-link">Contato</a>
+    <a href="https://api.whatsapp.com/send/?phone=5549984231852&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+servi%C3%A7os+cont%C3%A1beis+da+Portal+Contabilidade.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-wa" style="justify-content:center;">
+      <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+    </a>
+  </div>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section id="hero">
+    <div class="hero-inner">
+
+      <div class="hero-badge anim fade" data-h>
+        <span></span>
+        Pinhalzinho/SC &nbsp;·&nbsp; Fundada em 1973
+      </div>
+
+      <h1 class="hero-h1">
+        <span class="mask"><span class="line anim d1" data-h>Contabilidade e</span></span>
+        <span class="mask"><span class="line anim d2" data-h>assessoria para</span></span>
+        <span class="mask"><span class="line anim d3" data-h><em>sua empresa crescer.</em></span></span>
+      </h1>
+
+      <p class="hero-p anim rise d4" data-h>
+        Mais de 52 anos simplificando a gestão de empresas em Pinhalzinho e região. Contabilidade, planejamento tributário e consultoria sob medida.
+      </p>
+
+      <div class="hero-actions anim rise d5" data-h>
+        <a href="https://api.whatsapp.com/send/?phone=5549984231852&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+servi%C3%A7os+cont%C3%A1beis+da+Portal+Contabilidade.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-wa">
+          <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+        </a>
+        <a href="#servicos-wrap" class="btn-outline">
+          Ver serviços <i class="fa-solid fa-arrow-down text-xs"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════ MARQUEE ═══════ -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <!-- duplicated for seamless loop -->
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> 52 Anos de Experiência</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Contabilidade Empresarial</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Consultoria em Gestão</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Planejamento Tributário</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Abertura de Empresas</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Folha de Pagamento</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Pinhalzinho / SC</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> 180+ Empresas Atendidas</span>
+      <!-- repeat -->
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> 52 Anos de Experiência</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Contabilidade Empresarial</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Consultoria em Gestão</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Planejamento Tributário</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Abertura de Empresas</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Folha de Pagamento</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> Pinhalzinho / SC</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle-dot"></i> 180+ Empresas Atendidas</span>
+    </div>
+  </div>
+
+  <!-- ═══════ STATS ═══════ -->
+  <div class="stats-band">
+    <div class="stats-inner">
+      <div class="stat-cell anim pop" data-animate>
+        <div class="stat-val"><span class="counter" data-t="52" data-s="+">0</span><em>+</em></div>
+        <div class="stat-label">Anos no mercado</div>
+      </div>
+      <div class="stat-cell anim pop d1" data-animate>
+        <div class="stat-val"><span class="counter" data-t="180">0</span><em>+</em></div>
+        <div class="stat-label">Clientes atendidos</div>
+      </div>
+      <div class="stat-cell anim pop d2" data-animate>
+        <div class="stat-val">6</div>
+        <div class="stat-label">Áreas de atuação</div>
+      </div>
+      <div class="stat-cell anim pop d3" data-animate>
+        <div class="stat-val"><span class="counter" data-t="100">0</span><em>%</em></div>
+        <div class="stat-label">Atendimento presencial e digital</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SERVICES — SCROLL STORY (sticky, 700vh)
+  ═══════════════════════════════════════════════ -->
+  <div id="servicos-wrap">
+    <div id="servicos-sticky">
+
+      <!-- Fixed header inside sticky -->
+      <div class="srv-header">
+        <span class="srv-header-label">Nossos Serviços</span>
+        <span class="srv-counter">
+          <em id="srv-current">01</em>
+          <span style="color:var(--text-3);">&nbsp;/&nbsp;06</span>
+        </span>
+      </div>
+
+      <!-- Progress dots -->
+      <div class="srv-dots" id="srv-dots">
+        <button class="srv-dot on" data-to="0" aria-label="Serviço 1"></button>
+        <button class="srv-dot" data-to="1" aria-label="Serviço 2"></button>
+        <button class="srv-dot" data-to="2" aria-label="Serviço 3"></button>
+        <button class="srv-dot" data-to="3" aria-label="Serviço 4"></button>
+        <button class="srv-dot" data-to="4" aria-label="Serviço 5"></button>
+        <button class="srv-dot" data-to="5" aria-label="Serviço 6"></button>
+      </div>
+
+      <!-- ── Panel 1: Contabilidade Empresarial ── -->
+      <div class="srv-panel active" data-panel="0">
+        <div class="srv-panel-inner">
+          <div class="srv-text">
+            <span class="srv-num">01</span>
+            <span class="srv-tag">Foco no seu negócio</span>
+            <h2 class="srv-name">Contabilidade<br />Empresarial</h2>
+            <p class="srv-desc">
+              Chega de planilhas, multas e noites em claro. Escrituração completa, balanços e DRE entregues no prazo — para você tomar decisões com segurança e crescer sem surpresas.
+            </p>
+            <a href="#contato" class="btn-primary">
+              Solicitar orçamento <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+          <div class="srv-visual">
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <i class="fa-solid fa-book-open srv-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Panel 2: Consultoria em Gestão ── -->
+      <div class="srv-panel" data-panel="1">
+        <div class="srv-panel-inner">
+          <div class="srv-text">
+            <span class="srv-num">02</span>
+            <span class="srv-tag">Saia do achismo</span>
+            <h2 class="srv-name">Consultoria em<br />Gestão Empresarial</h2>
+            <p class="srv-desc">
+              Sabe aquela sensação de trabalhar muito e não ver o lucro crescer? Identificamos os gargalos, reorganizamos processos e te mostramos exatamente onde está o dinheiro da sua empresa.
+            </p>
+            <a href="#contato" class="btn-primary">
+              Solicitar orçamento <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+          <div class="srv-visual">
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <i class="fa-solid fa-chart-line srv-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Panel 3: Abertura de Empresas ── -->
+      <div class="srv-panel" data-panel="2">
+        <div class="srv-panel-inner">
+          <div class="srv-text">
+            <span class="srv-num">03</span>
+            <span class="srv-tag">Burocracia zero pra você</span>
+            <h2 class="srv-name">Abertura de<br />Empresas</h2>
+            <p class="srv-desc">
+              Registro, CNPJ, alvarás e toda a documentação para abrir MEI, ME, EPP e sociedades. Cuidamos de tudo para sua empresa nascer certa e rápida.
+            </p>
+            <a href="#contato" class="btn-primary">
+              Solicitar orçamento <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+          <div class="srv-visual">
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <i class="fa-solid fa-building srv-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Panel 4: Obrigações Fiscais ── -->
+      <div class="srv-panel" data-panel="3">
+        <div class="srv-panel-inner">
+          <div class="srv-text">
+            <span class="srv-num">04</span>
+            <span class="srv-tag">Sem multas, sem atrasos</span>
+            <h2 class="srv-name">Obrigações<br />Fiscais</h2>
+            <p class="srv-desc">
+              Apuração e entrega de SPED, DCTF, ECF, ECD e todas as obrigações acessórias dentro do prazo. Sua empresa sempre em dia com a Receita Federal e Estadual.
+            </p>
+            <a href="#contato" class="btn-primary">
+              Solicitar orçamento <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+          <div class="srv-visual">
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <i class="fa-solid fa-file-invoice-dollar srv-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Panel 5: Folha de Pagamento ── -->
+      <div class="srv-panel" data-panel="4">
+        <div class="srv-panel-inner">
+          <div class="srv-text">
+            <span class="srv-num">05</span>
+            <span class="srv-tag">Equipe e eSocial</span>
+            <h2 class="srv-name">Folha de<br />Pagamento</h2>
+            <p class="srv-desc">
+              Processamento completo da folha, eSocial, rescisões, férias e encargos trabalhistas. Sua equipe paga corretamente e você sem dor de cabeça com o Ministério do Trabalho.
+            </p>
+            <a href="#contato" class="btn-primary">
+              Solicitar orçamento <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+          <div class="srv-visual">
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <i class="fa-solid fa-users srv-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Panel 6: Planejamento Tributário ── -->
+      <div class="srv-panel" data-panel="5">
+        <div class="srv-panel-inner">
+          <div class="srv-text">
+            <span class="srv-num">06</span>
+            <span class="srv-tag">Pague só o que deve</span>
+            <h2 class="srv-name">Planejamento<br />Tributário</h2>
+            <p class="srv-desc">
+              A maioria das empresas paga mais imposto do que deveria. Escolhemos o regime ideal — Simples, Lucro Presumido ou Real — e estruturamos sua operação para você reter mais do que ganha.
+            </p>
+            <a href="#contato" class="btn-primary">
+              Solicitar orçamento <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+          <div class="srv-visual">
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <div class="srv-visual-ring"></div>
+            <i class="fa-solid fa-scale-balanced srv-icon"></i>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /servicos-sticky -->
+  </div><!-- /servicos-wrap -->
+
+  <!-- ═══════ PROCESSO ═══════ -->
+  <section id="processo" style="padding:120px 40px; background:var(--bg-2);">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div class="anim fade" data-animate style="margin-bottom:72px; max-width:640px;">
+        <span style="font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-2);">Como trabalhamos</span>
+        <h2 class="serif" style="font-size:clamp(2.2rem,4vw,3.2rem); line-height:1.08; margin-top:18px;">Um processo simples,<br/><em style="color:var(--accent); font-style:italic;">do primeiro café ao fechamento mensal.</em></h2>
+      </div>
+
+      <div class="proc-grid">
+        <div class="proc-step anim rise" data-animate>
+          <span class="proc-num">01</span>
+          <div class="proc-body">
+            <h3 class="serif" style="font-size:1.6rem;">Diagnóstico gratuito</h3>
+            <p style="color:var(--text-2); margin-top:10px; max-width:520px;">Conversamos sobre seu negócio, regime tributário atual e pontos de dor. Em 30 minutos você sai com um diagnóstico claro — sem compromisso.</p>
+          </div>
+        </div>
+        <div class="proc-step anim rise d1" data-animate>
+          <span class="proc-num">02</span>
+          <div class="proc-body">
+            <h3 class="serif" style="font-size:1.6rem;">Proposta personalizada</h3>
+            <p style="color:var(--text-2); margin-top:10px; max-width:520px;">Montamos um escopo enxuto com o que sua empresa realmente precisa. Sem pacote inflado, sem serviço fantasma — preço fechado por escrito.</p>
+          </div>
+        </div>
+        <div class="proc-step anim rise d2" data-animate>
+          <span class="proc-num">03</span>
+          <div class="proc-body">
+            <h3 class="serif" style="font-size:1.6rem;">Onboarding em 7 dias</h3>
+            <p style="color:var(--text-2); margin-top:10px; max-width:520px;">Cuidamos da migração do contador atual, do acesso aos sistemas e da regularização de pendências. Você não levanta uma planilha.</p>
+          </div>
+        </div>
+        <div class="proc-step anim rise d3" data-animate>
+          <span class="proc-num">04</span>
+          <div class="proc-body">
+            <h3 class="serif" style="font-size:1.6rem;">Acompanhamento mensal</h3>
+            <p style="color:var(--text-2); margin-top:10px; max-width:520px;">Fechamento no prazo, relatórios gerenciais e um contador de referência que atende no WhatsApp. Reunião trimestral de resultados incluída.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ SOBRE ═══════ -->
+  <section id="sobre">
+    <div class="sobre-inner">
+
+      <div class="sobre-img anim from-l" data-animate>
+        <i class="fa-solid fa-building-columns" style="font-size:5rem;"></i>
+        <span style="font-size:0.85rem;">Foto da empresa</span>
+        <div class="sobre-badge">Desde 1973</div>
+      </div>
+
+      <div class="sobre-text">
+        <p class="sobre-label anim rise" data-animate>Nossa história</p>
+        <h2 class="sobre-h2 anim rise d1" data-animate>
+          52 anos cuidando<br />de quem empreende
+        </h2>
+        <p class="sobre-p anim rise d2" data-animate>
+          Fundada em <strong style="color:rgba(255,255,255,0.75);">16 de agosto de 1973</strong>, a Portal Contabilidade nasceu com a missão de simplificar a vida dos empreendedores de Pinhalzinho e região.
+        </p>
+        <p class="sobre-p anim rise d3" data-animate>
+          Atravessamos planos econômicos, reformas tributárias e a revolução digital — sempre adaptando nossos serviços para entregar o melhor às empresas que confiam em nós.
+        </p>
+
+        <div class="anim rise d3" data-animate>
+          <div class="sobre-value">
+            <div class="sobre-check"><i class="fa-solid fa-check"></i></div>
+            <p class="sobre-value-text"><strong>Confiança</strong> — cinco décadas de relacionamento transparente com clientes e órgãos públicos.</p>
+          </div>
+          <div class="sobre-value">
+            <div class="sobre-check"><i class="fa-solid fa-check"></i></div>
+            <p class="sobre-value-text"><strong>Atualização</strong> — equipe capacitada nas mais recentes legislações e tecnologias fiscais.</p>
+          </div>
+          <div class="sobre-value">
+            <div class="sobre-check"><i class="fa-solid fa-check"></i></div>
+            <p class="sobre-value-text"><strong>Proximidade</strong> — atendimento humano, próximo ao cliente, entendendo a realidade local.</p>
+          </div>
+        </div>
+
+        <div class="anim rise d4" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:32px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);" data-animate>
+          <div style="padding:18px 16px;background:rgba(255,255,255,0.03);text-align:center;">
+            <p style="font-family:'DM Serif Display',serif;font-size:1.8rem;color:#fff;line-height:1;">180<span style="color:var(--accent-l);">+</span></p>
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">Clientes</p>
+          </div>
+          <div style="padding:18px 16px;background:rgba(255,255,255,0.03);text-align:center;border-left:1px solid rgba(255,255,255,0.07);border-right:1px solid rgba(255,255,255,0.07);">
+            <p style="font-family:'DM Serif Display',serif;font-size:1.8rem;color:#fff;line-height:1;">52<span style="color:var(--accent-l);">+</span></p>
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">Anos</p>
+          </div>
+          <div style="padding:18px 16px;background:rgba(255,255,255,0.03);text-align:center;">
+            <p style="font-family:'DM Serif Display',serif;font-size:1.8rem;color:#fff;line-height:1;">6</p>
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">Serviços</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════ DEPOIMENTOS ═══════ -->
+  <section id="depoimentos" style="padding:120px 40px; background:var(--ink); color:#fff;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div class="anim fade" data-animate style="text-align:center; max-width:640px; margin:0 auto 72px;">
+        <span style="font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.45);">Quem confia na Portal</span>
+        <h2 class="serif" style="font-size:clamp(2.2rem,4vw,3.2rem); line-height:1.08; margin-top:18px; color:#fff;">Empresas do Oeste de SC<br/><em style="color:var(--accent-l); font-style:italic;">que cresceram com a gente.</em></h2>
+      </div>
+
+      <div class="dep-grid">
+        <figure class="dep-card anim pop" data-animate>
+          <i class="fa-solid fa-quote-left" style="color:var(--accent-l); font-size:1.6rem; margin-bottom:18px;"></i>
+          <blockquote class="serif" style="font-size:1.2rem; line-height:1.45; font-style:italic;">"Depois que migramos para a Portal, parei de perder o sono com prazos. Entregam tudo no dia combinado e explicam cada número."</blockquote>
+          <figcaption style="margin-top:22px; font-size:0.85rem; color:rgba(255,255,255,0.6);"><strong style="color:#fff;">Carlos Menegat</strong><br/>Indústria metalúrgica — Pinhalzinho/SC</figcaption>
+        </figure>
+        <figure class="dep-card anim pop d1" data-animate>
+          <i class="fa-solid fa-quote-left" style="color:var(--accent-l); font-size:1.6rem; margin-bottom:18px;"></i>
+          <blockquote class="serif" style="font-size:1.2rem; line-height:1.45; font-style:italic;">"Tínhamos medo da troca de contador. A Portal fez toda a transição em uma semana e ainda descobriu crédito tributário que o anterior tinha deixado passar."</blockquote>
+          <figcaption style="margin-top:22px; font-size:0.85rem; color:rgba(255,255,255,0.6);"><strong style="color:#fff;">Fernanda Bortolini</strong><br/>Comércio varejista — Maravilha/SC</figcaption>
+        </figure>
+        <figure class="dep-card anim pop d2" data-animate>
+          <i class="fa-solid fa-quote-left" style="color:var(--accent-l); font-size:1.6rem; margin-bottom:18px;"></i>
+          <blockquote class="serif" style="font-size:1.2rem; line-height:1.45; font-style:italic;">"Atendimento humano de verdade. Ligo, mando WhatsApp e recebo resposta no mesmo dia. Para uma agro familiar como a nossa, isso vale ouro."</blockquote>
+          <figcaption style="margin-top:22px; font-size:0.85rem; color:rgba(255,255,255,0.6);"><strong style="color:#fff;">Josué Dalla Costa</strong><br/>Agroindústria — São Lourenço do Oeste/SC</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CONTATO ═══════ -->
+  <section id="contato">
+    <div class="contato-inner">
+
+      <div class="contato-header">
+        <p class="section-label anim rise" data-animate>Fale conosco</p>
+        <h2 class="contato-h2 anim rise d1" data-animate>Entre em Contato</h2>
+      </div>
+
+      <div class="contato-grid">
+
+        <!-- Info -->
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="info-card anim from-l" data-animate>
+            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <p class="info-title">Endereço</p>
+              <p class="info-val">Av. São Paulo, esq. c/ Rua João Pessoa, 2080<br />Sobreloja 01 — Salas 03 e 04<br />Centro — Pinhalzinho/SC — CEP 89.870-000</p>
+            </div>
+          </div>
+          <div class="info-card anim from-l d1" data-animate>
+            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <p class="info-title">Telefone</p>
+              <p class="info-val"><a href="tel:+554933661453">(49) 3366-1453</a><br /><span style="font-size:0.75rem;color:var(--text-3);">Seg a Sex — horário comercial</span></p>
+            </div>
+          </div>
+          <div class="info-card anim from-l d2" data-animate>
+            <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <p class="info-title">E-mail</p>
+              <p class="info-val"><a href="mailto:ctneusa@pzo.com.br">ctneusa@pzo.com.br</a><br /><span style="font-size:0.75rem;color:var(--text-3);">Resposta em até 1 dia útil</span></p>
+            </div>
+          </div>
+          <a href="https://api.whatsapp.com/send/?phone=5549984231852&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+servi%C3%A7os+cont%C3%A1beis+da+Portal+Contabilidade.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer"
+            class="btn-wa anim from-l d3" style="border-radius:14px;padding:16px 24px;justify-content:center;" data-animate>
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+            Conversar no WhatsApp agora
+          </a>
+        </div>
+
+        <!-- Form -->
+        <div class="form-card anim from-r" data-animate>
+          <h3>Envie uma mensagem</h3>
+          <!--
+            Ativar envio real (grátis, sem backend):
+            <form action="https://formsubmit.co/ctneusa@pzo.com.br" method="POST">
+            e remover e.preventDefault() no JS
+          -->
+          <form id="contact-form" novalidate>
+            <div class="form-gap anim rise" data-animate>
+              <label class="field-label" for="nome">Nome completo <span style="color:#dc2626">*</span></label>
+              <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" class="field" />
+            </div>
+            <div class="field-row form-gap">
+              <div class="anim rise d1" data-animate>
+                <label class="field-label" for="email">E-mail <span style="color:#dc2626">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="seu@email.com" class="field" />
+              </div>
+              <div class="anim rise d2" data-animate>
+                <label class="field-label" for="tel">Telefone</label>
+                <input type="tel" id="tel" name="telefone" placeholder="(49) 9xxxx-xxxx" class="field" />
+              </div>
+            </div>
+            <div class="form-gap anim rise d3" data-animate>
+              <label class="field-label" for="assunto">Serviço de interesse</label>
+              <select id="assunto" name="assunto" class="field">
+                <option value="">Selecione...</option>
+                <option>Contabilidade Empresarial</option>
+                <option>Consultoria em Gestão</option>
+                <option>Abertura de Empresa</option>
+                <option>Obrigações Fiscais</option>
+                <option>Folha de Pagamento</option>
+                <option>Planejamento Tributário</option>
+                <option>Outro assunto</option>
+              </select>
+            </div>
+            <div class="form-gap anim rise d4" data-animate>
+              <label class="field-label" for="msg">Mensagem <span style="color:#dc2626">*</span></label>
+              <textarea id="msg" name="mensagem" rows="4" required placeholder="Como podemos ajudar sua empresa?" class="field" style="resize:none;"></textarea>
+            </div>
+            <div class="anim rise d5" data-animate>
+              <button type="submit" id="sub-btn" class="submit-btn">
+                <i class="fa-solid fa-paper-plane"></i> Enviar mensagem
+              </button>
+            </div>
+            <p style="text-align:center;font-size:0.7rem;color:var(--text-3);margin-top:12px;">Ao enviar você concorda com nossa política de privacidade.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FAQ ═══════ -->
+  <section id="faq" style="padding:120px 40px; background:var(--bg);">
+    <div style="max-width:860px; margin:0 auto;">
+      <div class="anim fade" data-animate style="margin-bottom:56px;">
+        <span style="font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-2);">Perguntas frequentes</span>
+        <h2 class="serif" style="font-size:clamp(2.2rem,4vw,3.2rem); line-height:1.08; margin-top:18px;">Tudo o que você<br/><em style="color:var(--accent); font-style:italic;">queria perguntar ao contador.</em></h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item anim rise" data-animate>
+          <summary>Simples Nacional, Lucro Presumido ou Lucro Real — qual é o meu?</summary>
+          <div class="faq-a">Depende do faturamento, da atividade e da margem da sua empresa. No diagnóstico gratuito fazemos uma projeção dos três regimes com os seus números reais e mostramos qual economiza mais imposto legal neste ano.</div>
+        </details>
+        <details class="faq-item anim rise d1" data-animate>
+          <summary>Quanto tempo leva para trocar de contador?</summary>
+          <div class="faq-a">Em média 7 dias úteis. Cuidamos do distrato com o escritório anterior, da transferência de procurações e-CAC e da importação do histórico — você só assina os documentos.</div>
+        </details>
+        <details class="faq-item anim rise d2" data-animate>
+          <summary>Vocês atendem empresas fora de Pinhalzinho?</summary>
+          <div class="faq-a">Sim. Atendemos todo o Oeste de SC presencialmente e o Brasil inteiro de forma digital. Temos clientes em Chapecó, Maravilha, São Miguel e outras cidades da região.</div>
+        </details>
+        <details class="faq-item anim rise d3" data-animate>
+          <summary>Qual o prazo de entrega das obrigações mensais?</summary>
+          <div class="faq-a">Fechamos a contabilidade até o dia 15 e entregamos as guias de impostos sempre 3 dias antes do vencimento. Você nunca recebe uma DARF na última hora.</div>
+        </details>
+        <details class="faq-item anim rise d4" data-animate>
+          <summary>E se eu ainda não abri a empresa?</summary>
+          <div class="faq-a">Cuidamos da abertura completa — CNPJ, inscrição estadual/municipal, alvará, NIRE — e orientamos sobre o melhor regime desde o primeiro faturamento. Costuma sair em 5 a 10 dias.</div>
+        </details>
+        <details class="faq-item anim rise d5" data-animate>
+          <summary>Preciso ir até o escritório para assinar documentos?</summary>
+          <div class="faq-a">Só se você quiser. Trabalhamos com assinatura eletrônica gov.br e ICP-Brasil — 90% dos nossos clientes resolvem tudo sem sair do próprio negócio.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <svg width="34" height="40" viewBox="0 0 38 44" fill="none" aria-hidden="true">
+              <rect x="2" y="4" width="18" height="36" rx="2.5" fill="var(--ink)"/>
+              <rect x="5" y="7" width="12" height="5.5" rx="1.5" fill="var(--bg-2)" opacity="0.85"/>
+              <rect x="5"  y="16" width="4"  height="3.5" rx="0.8" fill="var(--bg)" opacity="0.55"/>
+              <rect x="11" y="16" width="4"  height="3.5" rx="0.8" fill="var(--bg)" opacity="0.55"/>
+              <rect x="5"  y="22" width="4"  height="3.5" rx="0.8" fill="var(--bg)" opacity="0.55"/>
+              <rect x="11" y="22" width="4"  height="3.5" rx="0.8" fill="var(--bg)" opacity="0.55"/>
+              <rect x="5"  y="28" width="10" height="3.5" rx="0.8" fill="var(--bg)" opacity="0.55"/>
+              <path d="M 20 15 A 7 7 0 0 1 20 29"   stroke="var(--accent)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M 20 11 A 11 11 0 0 1 20 33"  stroke="var(--accent)" stroke-width="2"   fill="none" stroke-linecap="round" opacity="0.55"/>
+              <path d="M 20 7  A 15 15 0 0 1 20 37"  stroke="var(--accent)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.28"/>
+            </svg>
+            <div>
+              <span style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--text);display:block;line-height:1.2;">Portal</span>
+              <span style="font-family:'DM Sans',sans-serif;font-size:0.62rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--text-2);display:block;">Contabilidade</span>
+            </div>
+          </div>
+          <p class="footer-p">Mais de 52 anos cuidando da saúde financeira de empresas em Pinhalzinho e região.</p>
+          <p class="footer-cnpj">CNPJ: 82.852.203/0001-70 · ME · Sociedade Empresária Limitada</p>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Navegação</p>
+          <a href="#servicos-wrap" class="footer-link">Serviços</a>
+          <a href="#sobre" class="footer-link">Sobre nós</a>
+          <a href="#contato" class="footer-link">Contato</a>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Contato</p>
+          <div class="footer-info-row"><i class="fa-solid fa-location-dot"></i><span>Av. São Paulo, 2080 — Centro<br />Pinhalzinho/SC — 89.870-000</span></div>
+          <div class="footer-info-row"><i class="fa-solid fa-phone"></i><a href="tel:+554933661453">(49) 3366-1453</a></div>
+          <div class="footer-info-row"><i class="fa-solid fa-envelope"></i><a href="mailto:ctneusa@pzo.com.br">ctneusa@pzo.com.br</a></div>
+          <div class="footer-social">
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send/?phone=5549984231852&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+servi%C3%A7os+cont%C3%A1beis+da+Portal+Contabilidade.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Portal Contabilidade e Assessoria Empresarial Ltda. Todos os direitos reservados.</p>
+        <p class="footer-copy">Pinhalzinho / Santa Catarina</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Scroll progress
+    const bar = document.getElementById('progress-bar');
+    const onScroll = () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      bar.style.width = pct + '%';
+    };
+
+    // ── Navbar
+    const navbar = document.getElementById('navbar');
+    const navCheck = () => navbar.classList.toggle('nav-scrolled', window.scrollY > 80);
+
+    // ── WA fab
+    const fab = document.getElementById('wa-fab');
+    const fabCheck = () => fab.classList.toggle('show', window.scrollY > window.innerHeight * 0.5);
+
+    window.addEventListener('scroll', () => { onScroll(); navCheck(); fabCheck(); }, { passive: true });
+    navCheck();
+
+    // ── Mobile menu
+    const ham = document.getElementById('hamburger');
+    const menu = document.getElementById('mobile-menu');
+    const hamIcon = document.getElementById('ham-icon');
+    let menuOpen = false;
+    ham.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      menu.classList.toggle('open', menuOpen);
+      ham.setAttribute('aria-expanded', menuOpen);
+      hamIcon.className = menuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menuOpen = false; menu.classList.remove('open'); hamIcon.className = 'fa-solid fa-bars';
+    }));
+
+    // ── Hero animations (immediate)
+    requestAnimationFrame(() => setTimeout(() => {
+      document.querySelectorAll('[data-h]').forEach(el => el.classList.add('in'));
+    }, 60));
+
+    // ── Scroll reveal (general)
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('[data-animate]').forEach(el => io.observe(el));
+
+    // ── Counter animation
+    const countIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = +el.dataset.t;
+        const from = target > 10 ? target - 40 : 0;
+        const dur = 1200;
+        const t0 = performance.now();
+        const step = now => {
+          const p = Math.min((now - t0) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(from + (target - from) * eased);
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+        countIO.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(el => countIO.observe(el));
+
+    // ═══════════════════════════════════════════════
+    // SERVICES SCROLL STORY
+    // ═══════════════════════════════════════════════
+    const wrap    = document.getElementById('servicos-wrap');
+    const panels  = document.querySelectorAll('.srv-panel');
+    const dots    = document.querySelectorAll('.srv-dot');
+    const counter = document.getElementById('srv-current');
+    const N       = panels.length;
+    let currentIdx = 0;
+
+    function setPanel(idx) {
+      idx = Math.max(0, Math.min(N - 1, idx));
+      if (idx === currentIdx && panels[idx].classList.contains('active')) return;
+      currentIdx = idx;
+      panels.forEach((p, i) => {
+        p.classList.remove('active', 'past');
+        if (i === idx) p.classList.add('active');
+        else if (i < idx) p.classList.add('past');
+      });
+      dots.forEach((d, i) => d.classList.toggle('on', i === idx));
+      counter.textContent = String(idx + 1).padStart(2, '0');
+    }
+
+    function updateServicesScroll() {
+      const rect  = wrap.getBoundingClientRect();
+      const total = wrap.offsetHeight - window.innerHeight;
+      const scrolled = -rect.top;
+      if (scrolled < 0 || scrolled > total) return;
+      const progress = scrolled / total;
+      const idx = Math.min(Math.floor(progress * N), N - 1);
+      setPanel(idx);
+    }
+
+    window.addEventListener('scroll', updateServicesScroll, { passive: true });
+    updateServicesScroll();
+
+    // Dot click: jump to that service
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const toIdx = +dot.dataset.to;
+        const wrapTop = wrap.getBoundingClientRect().top + window.scrollY;
+        const segH    = (wrap.offsetHeight - window.innerHeight) / N;
+        const target  = wrapTop + segH * toIdx;
+        window.scrollTo({ top: target, behavior: 'smooth' });
+      });
+    });
+
+    // ── Contact form
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('sub-btn');
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Mensagem enviada!';
+      btn.style.background = '#16a34a';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviar mensagem';
+        btn.style.background = '';
+        btn.disabled = false;
+        this.reset();
+      }, 4000);
+    });
+  </script>
+</body>
+</html>

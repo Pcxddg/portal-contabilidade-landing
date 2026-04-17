@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 44" fill="none" width="120" height="140">
+  <!-- Corpo da calculadora -->
+  <rect x="2" y="4" width="18" height="36" rx="2.5" fill="#1E1B14"/>
+  <!-- Display -->
+  <rect x="5" y="7" width="12" height="5.5" rx="1.5" fill="#EDE6D8" opacity="0.85"/>
+  <!-- Teclado linha 1 -->
+  <rect x="5"  y="16" width="4"  height="3.5" rx="0.8" fill="#F4EFE4" opacity="0.55"/>
+  <rect x="11" y="16" width="4"  height="3.5" rx="0.8" fill="#F4EFE4" opacity="0.55"/>
+  <!-- Teclado linha 2 -->
+  <rect x="5"  y="22" width="4"  height="3.5" rx="0.8" fill="#F4EFE4" opacity="0.55"/>
+  <rect x="11" y="22" width="4"  height="3.5" rx="0.8" fill="#F4EFE4" opacity="0.55"/>
+  <!-- Teclado linha 3 (largo) -->
+  <rect x="5"  y="28" width="10" height="3.5" rx="0.8" fill="#F4EFE4" opacity="0.55"/>
+  <!-- Arcos de sinal (centro em 20,22) -->
+  <path d="M 20 15 A 7 7 0 0 1 20 29"   stroke="#8B6524" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 20 11 A 11 11 0 0 1 20 33"  stroke="#8B6524" stroke-width="2"   fill="none" stroke-linecap="round" opacity="0.55"/>
+  <path d="M 20 7  A 15 15 0 0 1 20 37"  stroke="#8B6524" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.28"/>
+</svg>

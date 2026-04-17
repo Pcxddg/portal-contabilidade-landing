@@ -1,0 +1,11 @@
+# CNPJ document (sensitive / not for public repo)
+download.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
