@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/pcxdd/Videos/portal -type f -exec file {} \\\\;)",
+      "WebFetch(domain:primazzo.com.br)",
+      "Bash(gh auth *)",
+      "Bash(git --version)",
+      "Bash(winget install *)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\")",
+      "Bash(gh --version)",
+      "Bash(cmd.exe //c start \"GitHub Auth\" cmd.exe //k \"\\\\\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\\\\\" auth login\")",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git -c user.email=\"pcxddjesus@gmail.com\" -c user.name=\"Pcxddg\" commit -m \"Initial commit: Portal Contabilidade landing page\")",
+      "Bash(gh repo *)",
+      "Bash(cmd.exe //c start \"GH Scope\" cmd.exe //k \"\\\\\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\\\\\" auth refresh -h github.com -s delete_repo\")",
+      "Bash(gh api *)",
+      "Bash(git -c user.email=\"pcxddjesus@gmail.com\" -c user.name=\"Pcxddg\" commit -m \"Improve mobile responsiveness: tighter breakpoints, phone <480px refinements, new sections adapt padding\")",
+      "Bash(git push *)"
+    ]
+  }
+}

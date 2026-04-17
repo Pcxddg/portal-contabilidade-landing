@@ -141,12 +141,13 @@
 
     .hero-h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      line-height: 1.08;
+      font-size: clamp(2.1rem, 7vw, 5.5rem);
+      line-height: 1.1;
       letter-spacing: -0.02em;
       color: var(--text);
       margin-bottom: 28px;
       max-width: 760px;
+      word-wrap: break-word;
     }
     .hero-h1 em { font-style: italic; color: var(--accent); }
 
@@ -507,17 +508,29 @@
     .line { display: block; transform: translateY(110%); transition: transform 0.9s cubic-bezier(0.16,1,0.3,1); }
     .line.in { transform: translateY(0); }
 
-    /* ─── MOBILE ─── */
+    /* Default padding for new sections (overridable by media queries) */
+    #processo, #depoimentos, #faq { padding: 120px 40px; }
+
+    /* ─── TABLET / MOBILE (≤768px) ─── */
     @media (max-width: 768px) {
       #navbar { padding: 0 20px; }
       .nav-links { display: none; }
       #hamburger { display: block; }
       #mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(244,239,228,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 99; padding: 20px; }
       #mobile-menu.open { display: flex; flex-direction: column; gap: 14px; }
-      #hero { padding: 120px 20px 60px; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
-      .stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 20px 0; }
+      #hero { padding: 110px 20px 60px; min-height: auto; }
+      .hero-p { font-size: 1rem; margin-bottom: 32px; }
+      .hero-actions { gap: 10px; width: 100%; }
+      .hero-actions .btn-wa, .hero-actions .btn-outline, .hero-actions .btn-primary { flex: 1 1 auto; justify-content: center; min-width: 0; }
+      .hero-badge { font-size: 0.62rem; padding: 6px 12px; }
+      .marquee-item { font-size: 0.64rem; padding: 0 18px; gap: 12px; }
+      .stats-band { padding: 32px 16px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; gap: 0; }
+      .stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 20px 10px; }
       .stat-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+      .stat-cell:nth-last-child(-n+2) { border-bottom: none; }
+      .stat-val { font-size: 2.4rem; }
+      .stat-label { font-size: 0.62rem; }
       .srv-panel-inner { grid-template-columns: 1fr; gap: 24px; }
       .srv-visual { height: 160px; }
       .srv-visual-ring:nth-child(1) { width: 140px; height: 140px; }
@@ -525,17 +538,52 @@
       .srv-visual-ring:nth-child(3) { width: 60px; height: 60px; }
       .srv-icon { font-size: 2.2rem; }
       .srv-num { font-size: 4rem; }
-      .srv-panel { padding: 0 20px; }
-      .srv-header { padding: 16px 20px; }
-      .srv-dots { right: 14px; }
+      .srv-name { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+      .srv-panel { padding: 0 20px; inset: 64px 0 0 0; }
+      .srv-header { padding: 14px 20px; }
+      .srv-dots { right: 10px; gap: 6px; }
+      .srv-dot { width: 5px; height: 5px; }
+      .srv-dot.on { height: 16px; }
       .sobre-inner { grid-template-columns: 1fr; gap: 40px; }
       .contato-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
       .contato-inner { padding: 0; }
       #contato { padding: 80px 20px; }
       #sobre { padding: 80px 20px; }
+      #processo, #depoimentos, #faq { padding: 80px 20px; }
       footer { padding: 52px 20px 24px; }
       .field-row { grid-template-columns: 1fr; }
+      .dep-card { padding: 28px 24px; }
+      .faq-item summary { padding: 18px 20px; font-size: 1rem; gap: 12px; }
+      .faq-a { padding: 0 20px 20px; font-size: 0.95rem; }
+    }
+
+    /* ─── PHONE (≤480px) ─── */
+    @media (max-width: 480px) {
+      #hero { padding: 100px 16px 48px; }
+      .hero-badge { font-size: 0.58rem; padding: 5px 10px; margin-bottom: 24px; }
+      .hero-p { font-size: 0.95rem; margin-bottom: 28px; }
+      .nav-logo-text { font-size: 0.9rem; }
+      .nav-logo-sub { font-size: 0.56rem; }
+      .nav-cta { display: none; } /* hamburger + mobile menu já carrega o CTA */
+      .stats-band { padding: 24px 12px; }
+      .stat-val { font-size: 2rem; }
+      .stat-cell { padding: 16px 6px; }
+      .stat-label { font-size: 0.58rem; letter-spacing: 0.06em; }
+      #processo, #depoimentos, #faq { padding: 64px 16px; }
+      #contato, #sobre { padding: 64px 16px; }
+      .proc-num { font-size: 2.8rem; }
+      .proc-step h3 { font-size: 1.3rem !important; }
+      .dep-card { padding: 24px 20px; }
+      .dep-card blockquote { font-size: 1.05rem !important; }
+      .faq-item summary { font-size: 0.95rem; padding: 16px 18px; }
+      .faq-a { padding: 0 18px 18px; font-size: 0.9rem; }
+      footer { padding: 44px 16px 20px; }
+      .btn-primary, .btn-outline, .btn-wa, .nav-cta { font-size: 0.82rem; padding: 12px 18px; }
+      .srv-num { font-size: 3.2rem; }
+      .srv-name { font-size: 1.6rem; }
+      .srv-header { padding: 12px 16px; }
+      .srv-header-label { font-size: 0.58rem; }
     }
 
     /* ─── PROCESSO ─── */
@@ -865,7 +913,7 @@
   </div><!-- /servicos-wrap -->
 
   <!-- ═══════ PROCESSO ═══════ -->
-  <section id="processo" style="padding:120px 40px; background:var(--bg-2);">
+  <section id="processo" style="background:var(--bg-2);">
     <div style="max-width:1280px; margin:0 auto;">
       <div class="anim fade" data-animate style="margin-bottom:72px; max-width:640px;">
         <span style="font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-2);">Como trabalhamos</span>
@@ -962,7 +1010,7 @@
   </section>
 
   <!-- ═══════ DEPOIMENTOS ═══════ -->
-  <section id="depoimentos" style="padding:120px 40px; background:var(--ink); color:#fff;">
+  <section id="depoimentos" style="background:var(--ink); color:#fff;">
     <div style="max-width:1280px; margin:0 auto;">
       <div class="anim fade" data-animate style="text-align:center; max-width:640px; margin:0 auto 72px;">
         <span style="font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.45);">Quem confia na Portal</span>
@@ -1084,7 +1132,7 @@
   </section>
 
   <!-- ═══════ FAQ ═══════ -->
-  <section id="faq" style="padding:120px 40px; background:var(--bg);">
+  <section id="faq" style="background:var(--bg);">
     <div style="max-width:860px; margin:0 auto;">
       <div class="anim fade" data-animate style="margin-bottom:56px;">
         <span style="font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-2);">Perguntas frequentes</span>
